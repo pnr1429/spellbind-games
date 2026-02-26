@@ -110,6 +110,27 @@ section{padding:7rem 0}
 footer{padding:2.5rem 0;text-align:center;border-top:1px solid var(--border)}
 footer p{color:var(--muted);font-size:.8rem}
 
+/* VIDEO HERO */
+.video-hero{position:relative;border-radius:20px;overflow:hidden;margin-bottom:3rem;aspect-ratio:16/9;background:#000}
+.video-hero video{width:100%;height:100%;object-fit:cover}
+.video-overlay{position:absolute;bottom:0;left:0;right:0;padding:2.5rem;background:linear-gradient(transparent,rgba(0,0,0,.8))}
+.video-overlay h3{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:.3rem}
+.video-overlay p{color:var(--text-secondary);font-size:.95rem}
+
+/* BENTO GRID */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:auto;gap:1.5rem}
+.bento-large{grid-row:span 2}
+.bento-wide{grid-column:span 2}
+.bento-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;position:relative;transition:all .3s}
+.bento-item:hover{transform:translateY(-3px);border-color:rgba(124,106,240,0.2)}
+.bento-item img{width:100%;height:100%;object-fit:cover;display:block}
+.bento-large img{min-height:100%}
+.bento-label{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.bento-label h3{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+.bento-label p{font-size:.82rem;color:var(--text-secondary)}
+.bento-status{padding:2rem}
+.bento-status h3{margin-bottom:1.2rem;font-size:1.05rem}
+
 /* DIVIDER */
 .section-dark{background:var(--surface)}
 
@@ -122,7 +143,8 @@ footer p{color:var(--muted);font-size:.8rem}
   .hamburger{display:flex}
   .nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:rgba(8,8,13,0.98);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border)}
   .nav-links.open{display:flex}
-  .philosophy,.games-grid,.feat-grid,.gallery{grid-template-columns:1fr}
+  .philosophy,.games-grid,.feat-grid,.gallery,.bento{grid-template-columns:1fr}
+  .bento-large,.bento-wide{grid-row:span 1;grid-column:span 1}
   .features{grid-template-columns:1fr}
   section{padding:5rem 0}
   .container{padding:0 1.5rem}
@@ -238,52 +260,60 @@ footer p{color:var(--muted);font-size:.8rem}
       <p>게임 소개 텍스트가 들어갈 영역입니다.</p>
     </div>
 
-    <div class="features fade-in">
-      <div class="feat-item">
-        <div class="feat-icon">⚔️</div>
-        <div class="feat-text"><h3>실시간 전투</h3><p>특징 설명이 들어갈 영역</p></div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">🎯</div>
-        <div class="feat-text"><h3>전략적 플레이</h3><p>특징 설명이 들어갈 영역</p></div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">👥</div>
-        <div class="feat-text"><h3>멀티플레이</h3><p>특징 설명이 들어갈 영역</p></div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-icon">🏆</div>
-        <div class="feat-text"><h3>랭킹 시스템</h3><p>특징 설명이 들어갈 영역</p></div>
+    <!-- Video Hero -->
+    <div class="video-hero fade-in">
+      <video autoplay muted loop playsinline>
+        <source src="assets/rush-attack-video.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h3>RUSH ATTACK</h3>
+        <p>지금 바로 플레이 영상을 확인하세요</p>
       </div>
     </div>
 
-    <div class="sh fade-in">
-      <div class="sh-label">Screenshots</div>
-      <h2>게임 스크린샷</h2>
-    </div>
-    <div class="gallery fade-in">
-      <img src="assets/rush-attack-boss.jpg" alt="Boss Battle">
-      <img src="assets/rush-attack-hunt.jpg" alt="Hunt">
-      <img src="assets/rush-attack-fight.jpg" alt="Fight">
-    </div>
-
-    <div class="dev-status fade-in">
-      <h3>📊 개발 진행 상태</h3>
-      <div class="status-row">
-        <label><span>게임 디자인</span><span>90%</span></label>
-        <div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div>
+    <!-- Bento Grid -->
+    <div class="bento fade-in">
+      <div class="bento-item bento-large">
+        <img src="assets/rush-attack-boss.jpg" alt="Boss Battle">
+        <div class="bento-label">
+          <h3>⚔️ Defeat the Boss</h3>
+          <p>거대한 보스를 처치하고 생존하라</p>
+        </div>
       </div>
-      <div class="status-row">
-        <label><span>아트 & 그래픽</span><span>75%</span></label>
-        <div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div>
+      <div class="bento-item">
+        <img src="assets/rush-attack-hunt.jpg" alt="Hunt">
+        <div class="bento-label">
+          <h3>🎯 Hunt & Earn</h3>
+          <p>적을 사냥하고 보상을 획득</p>
+        </div>
       </div>
-      <div class="status-row">
-        <label><span>프로그래밍</span><span>65%</span></label>
-        <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+      <div class="bento-item">
+        <img src="assets/rush-attack-fight.jpg" alt="Fight">
+        <div class="bento-label">
+          <h3>👥 Time to Fight</h3>
+          <p>압도적인 전투의 시작</p>
+        </div>
       </div>
-      <div class="status-row">
-        <label><span>QA & 테스트</span><span>40%</span></label>
-        <div class="bar-bg"><div class="bar-fill" style="width:40%"></div></div>
+      <div class="bento-item bento-wide">
+        <div class="bento-status">
+          <h3>📊 개발 진행 상태</h3>
+          <div class="status-row">
+            <label><span>게임 디자인</span><span>90%</span></label>
+            <div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div>
+          </div>
+          <div class="status-row">
+            <label><span>아트 & 그래픽</span><span>75%</span></label>
+            <div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div>
+          </div>
+          <div class="status-row">
+            <label><span>프로그래밍</span><span>65%</span></label>
+            <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+          </div>
+          <div class="status-row">
+            <label><span>QA & 테스트</span><span>40%</span></label>
+            <div class="bar-bg"><div class="bar-fill" style="width:40%"></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -300,7 +330,7 @@ footer p{color:var(--muted);font-size:.8rem}
     <div class="contact-wrap fade-in">
       <div class="contact-email">
         <span>Email</span>
-        <a href="mailto:jimjino@spellbinds.io">jimjino@spellbinds.io</a>
+        <a href="mailto:Contact@Spellbind.io">Contact@Spellbind.io</a>
       </div>
       <form onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ 전송 완료';setTimeout(()=>this.reset(),2000);setTimeout(()=>this.querySelector('button').textContent='보내기',2000)">
         <div class="form-group"><input type="text" placeholder="이름" required></div>
