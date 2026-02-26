@@ -74,12 +74,10 @@ section{padding:7rem 0}
 .game-card-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.3rem}
 .game-card-body p{font-size:.85rem;color:var(--muted)}
 
-/* VIDEO HERO */
-.video-hero{position:relative;border-radius:20px;overflow:hidden;margin-bottom:3rem;aspect-ratio:9/16;max-height:70vh;max-width:400px;margin-left:auto;margin-right:auto;background:#000}
-.video-hero video{width:100%;height:100%;object-fit:cover}
-.video-overlay{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.85))}
-.video-overlay h3{font-size:clamp(1.2rem,3vw,1.8rem);font-weight:800;margin-bottom:.3rem}
-.video-overlay p{color:var(--text-secondary);font-size:.85rem}
+/* DUAL VIDEO */
+.dual-video{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem;max-width:700px;margin-left:auto;margin-right:auto}
+.video-card{border-radius:20px;overflow:hidden;aspect-ratio:9/16;background:#000;border:1px solid var(--border)}
+.video-card video{width:100%;height:100%;object-fit:cover}
 
 /* BENTO GRID — portrait images */
 .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -92,12 +90,17 @@ section{padding:7rem 0}
 .bento-label h3{font-size:.95rem;font-weight:700;margin-bottom:.2rem}
 .bento-label p{font-size:.8rem;color:var(--text-secondary)}
 
-/* KPI SECTION */
-.kpi-section{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.kpi-header{padding:1.5rem 2rem 1rem}
-.kpi-header h3{font-size:1.15rem;margin-bottom:.4rem}
-.kpi-header .kpi-highlight{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
-.kpi-img{padding:0 1.5rem 1.5rem}
+/* KPI ACHIEVEMENT */
+.kpi-achievement{background:linear-gradient(135deg,#0f0f1a,#1a1030)!important;border:1px solid rgba(124,106,240,0.25)!important;overflow:hidden}
+.kpi-banner{display:flex;align-items:center;gap:1.5rem;padding:2rem 2.5rem 1rem}
+.kpi-flag{font-size:3.5rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.kpi-title-wrap{flex:1}
+.kpi-eyebrow{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.3rem}
+.kpi-main-title{font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:800;margin-bottom:.5rem}
+.kpi-result{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(124,106,240,0.2),rgba(167,139,250,0.15));padding:.6rem 1.5rem;border-radius:50px;border:1px solid rgba(124,106,240,0.3)}
+.kpi-check{font-size:1.2rem;color:#4ade80;font-weight:900}
+.kpi-result-text{font-size:1.05rem;font-weight:800;background:linear-gradient(135deg,#4ade80,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.kpi-img{padding:1rem 2rem 2rem}
 .kpi-img img{width:100%;border-radius:12px}
 
 /* CONTACT */
@@ -127,8 +130,11 @@ footer p{color:var(--muted);font-size:.8rem}
   .nav-links{display:none;position:absolute;top:64px;left:0;width:100%;background:rgba(8,8,13,0.98);flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid var(--border)}
   .nav-links.open{display:flex}
   .philosophy,.games-grid,.feat-grid{grid-template-columns:1fr}
+  .dual-video{grid-template-columns:1fr 1fr;max-width:100%}
   .bento{grid-template-columns:1fr}
   .bento-wide{grid-column:span 1}
+  .kpi-banner{flex-direction:column;text-align:center;gap:1rem;padding:1.5rem}
+  .kpi-flag{font-size:2.5rem}
   section{padding:5rem 0}
   .container{padding:0 1.5rem}
   .video-hero{max-width:100%;max-height:80vh}
@@ -248,14 +254,17 @@ footer p{color:var(--muted);font-size:.8rem}
       <p>게임 소개 텍스트가 들어갈 영역입니다.</p>
     </div>
 
-    <!-- Video — portrait mobile game -->
-    <div class="video-hero fade-in">
-      <video autoplay muted loop playsinline>
-        <source src="assets/rush-attack-video.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay">
-        <h3>RUSH ATTACK</h3>
-        <p>플레이 영상</p>
+    <!-- Dual Video -->
+    <div class="dual-video fade-in">
+      <div class="video-card">
+        <video autoplay muted loop playsinline>
+          <source src="assets/rush-attack-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-card">
+        <video autoplay muted loop playsinline>
+          <source src="assets/rush-attack-video2.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
 
@@ -283,16 +292,21 @@ footer p{color:var(--muted);font-size:.8rem}
         </div>
       </div>
 
-      <!-- KPI -->
-      <div class="bento-item bento-wide" style="position:static">
-        <div class="kpi-section">
-          <div class="kpi-header">
-            <h3>🇺🇸 2026년 북미 시장 3차 Test</h3>
-            <span class="kpi-highlight">→ Soft 런칭 기준 달성!</span>
+      <!-- KPI Achievement -->
+      <div class="bento-item bento-wide kpi-achievement" style="position:static">
+        <div class="kpi-banner">
+          <div class="kpi-flag">🇺🇸</div>
+          <div class="kpi-title-wrap">
+            <div class="kpi-eyebrow">2026 North America Market</div>
+            <h3 class="kpi-main-title">3차 테스트 결과</h3>
+            <div class="kpi-result">
+              <span class="kpi-check">✓</span>
+              <span class="kpi-result-text">Soft 런칭 기준 달성!</span>
+            </div>
           </div>
-          <div class="kpi-img">
-            <img src="assets/kpi-metrics.jpg" alt="3차 최종 KPI 지표">
-          </div>
+        </div>
+        <div class="kpi-img">
+          <img src="assets/kpi-metrics.jpg" alt="3차 최종 KPI 지표">
         </div>
       </div>
     </div>
