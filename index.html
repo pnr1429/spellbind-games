@@ -136,10 +136,11 @@ footer p{color:var(--muted);font-size:.8rem}
 .kpi-badge{font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.4rem 1rem;border-radius:50px;display:inline-block;margin-bottom:1rem}
 .kpi-android{background:rgba(124,106,240,0.15);color:var(--accent2)}
 .kpi-ios{background:rgba(59,130,246,0.15);color:#60a5fa}
-.kpi-cards{display:flex;flex-direction:column;gap:.6rem}
-.kpi-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center}
-.kpi-value{font-size:1.2rem;font-weight:800;color:var(--text)}
-.kpi-label{font-size:.78rem;color:var(--muted)}
+.kpi-platform{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem}
+.kpi-row{display:flex;gap:2rem;align-items:baseline}
+.kpi-cell{flex:1}
+.kpi-big{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;color:var(--text);margin-bottom:.2rem}
+.kpi-label{font-size:.75rem;color:var(--muted);letter-spacing:.3px}
 .kpi-note{font-size:.82rem;color:var(--accent2);padding:.8rem 1rem;background:rgba(124,106,240,0.06);border-radius:10px;border-left:3px solid var(--accent);line-height:1.6}
 @media(max-width:768px){.kpi-grid{grid-template-columns:1fr}}
 
@@ -312,18 +313,18 @@ footer p{color:var(--muted);font-size:.8rem}
           <div class="kpi-grid">
             <div class="kpi-platform">
               <div class="kpi-badge kpi-android">Android · 3차</div>
-              <div class="kpi-cards">
-                <div class="kpi-card"><div class="kpi-value">35.8%</div><div class="kpi-label">D1 리텐션</div></div>
-                <div class="kpi-card"><div class="kpi-value">3,826s</div><div class="kpi-label">D0 플레이타임</div></div>
-                <div class="kpi-card"><div class="kpi-value">$1.33</div><div class="kpi-label">CPI</div></div>
+              <div class="kpi-row">
+                <div class="kpi-cell"><div class="kpi-big">35.8%</div><div class="kpi-label">D1 리텐션</div></div>
+                <div class="kpi-cell"><div class="kpi-big">19,433s</div><div class="kpi-label">Cum. D3 PT ≈5.4h</div></div>
+                <div class="kpi-cell"><div class="kpi-big">$1.33</div><div class="kpi-label">CPI</div></div>
               </div>
             </div>
             <div class="kpi-platform">
               <div class="kpi-badge kpi-ios">iOS · 3차</div>
-              <div class="kpi-cards">
-                <div class="kpi-card"><div class="kpi-value">42.7%</div><div class="kpi-label">D1 리텐션</div></div>
-                <div class="kpi-card"><div class="kpi-value">3,330s</div><div class="kpi-label">D0 플레이타임</div></div>
-                <div class="kpi-card"><div class="kpi-value">$1.25</div><div class="kpi-label">CPI</div></div>
+              <div class="kpi-row">
+                <div class="kpi-cell"><div class="kpi-big">42.7%</div><div class="kpi-label">D1 리텐션</div></div>
+                <div class="kpi-cell"><div class="kpi-big">11,708s</div><div class="kpi-label">Cum. D3 PT ≈3.3h</div></div>
+                <div class="kpi-cell"><div class="kpi-big">$1.25</div><div class="kpi-label">CPI</div></div>
               </div>
             </div>
           </div>
